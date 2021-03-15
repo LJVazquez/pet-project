@@ -6,7 +6,7 @@
         <div class="row justify-content-around gx-0">
 
             <div class="col-12 col-lg-6 bg-white mb-2 pb-2">
-                <div class="border-top border-bottom py-2 d-flex align-items-center">
+                <div class="border-top border-bottom py-2 px-3 d-flex align-items-center">
                     <img src="https://i.pravatar.cc/150?img=15" alt="" class="rounded-circle me-2" height="48">
                     <div class="lh-1">
                         {{ Auth::user()->name }}<br>
@@ -27,7 +27,7 @@
                 </form>
             </div>
             <div class="col-12 col-lg-4 mb-2 pb-2 bg-white">
-                <h3>Empresas top</h3>
+                <p class="display-6 px-3">Empresas top</p>
             </div>
         </div>
 
@@ -55,7 +55,19 @@
                 @endforeach
             </div>
             <div class="col-12 col-lg-4 bg-white my-2 pb-2">
-                <h3>Siguiendo</h3>
+
+                <p class="display-6 px-3">Siguiendo</p>
+
+                @foreach (Auth::user()->following as $friend)
+                    <div class="py-2 px-3 d-flex align-items-center">
+                        <img src="https://i.pravatar.cc/150?img=15" alt="" class="rounded-circle me-2" height="48">
+                        <div class="lh-1">
+                            {{ $friend->name }}<br>
+                            <span class="fw-light">Usuario</span>
+                        </div>
+                    </div>
+                @endforeach
+
             </div>
         </div>
 
