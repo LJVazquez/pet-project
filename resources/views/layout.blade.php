@@ -12,7 +12,7 @@
 
 <body class="has-navbar-fixed-top">
     <div class="container">
-        @include('timeline.navbar')
+        @include('navbar')
         @yield('content')
     </div>
 

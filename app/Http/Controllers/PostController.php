@@ -10,12 +10,18 @@ class PostController extends Controller
 {
     public function index()
     {
-        $posts = Post::where('user_id', Auth::id())->latest()->get();
+        $following = Auth::user()->following;
+        $followingIDs = $following->pluck('id');
+        $posts = Post::whereIn('user_id', $followingIDs)
+            ->orWhere('user_id', Auth::id())
+            ->latest()
+            ->get();
 
         return view(
             'timeline.home',
             [
                 'posts' => $posts,
+                'following' => $following
             ]
         );
     }

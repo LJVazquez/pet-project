@@ -6,10 +6,18 @@ use Illuminate\Support\Facades\Route;
 //     return view('timeline.home');
 // });
 
-Route::get('/', 'App\Http\Controllers\PostController@index');
+Route::get('/', function () {
+    return redirect()->route('home');
+});
 
-Route::post('/posts', 'App\Http\Controllers\PostController@store');
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return view('dashboard');
-})->name('dashboard');
+Route::middleware('auth')->group(function () {
+    Route::get('/posts', 'App\Http\Controllers\PostController@index')->name('home');
+    Route::post('/posts', 'App\Http\Controllers\PostController@store');
+});
+
+Route::get('/profiles/{user}', 'App\Http\Controllers\ProfilesController@show');
+
+// Route::middleware(['auth:sanctum', 'verified'])->get('/', function () {
+//     return view('dashboard');
+// })->name('dashboard');

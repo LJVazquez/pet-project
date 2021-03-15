@@ -2,7 +2,7 @@
     <div class="container">
         <div class="navbar-brand">
             <a href="/" class="navbar-item">
-                <img src="{{ asset('/img/dog.svg') }}" alt="logo">Pet</a>
+                <img src="{{ asset('/img/paw.svg') }}" alt="logo">Pet</a>
             <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false"
                 data-target="navbarBasicExample">
                 <span aria-hidden="true"></span>
