@@ -1,6 +1,6 @@
 <form action="" class="box">
     <div class="field">
-        <label class="label">Message</label>
+        <label class="label">Nuevo posteo</label>
         <div class="control">
             <textarea class="textarea" placeholder="Textarea"></textarea>
         </div>

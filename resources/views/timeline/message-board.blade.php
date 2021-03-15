@@ -22,9 +22,11 @@
                 <div class="level-right">
                     <a class="level-item">
                         <span class="icon is-small"><i class="fas fa-dollar-sign"></i></span>
+                        <p>Donar</p>
                     </a>
                     <a class="level-item">
                         <span class="icon is-small"><i class="fas fa-hand-sparkles"></i></span>
+                        <p class="ml-2">Adoptar</p>
                     </a>
                 </div>
             </nav>
