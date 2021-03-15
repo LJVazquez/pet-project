@@ -1,21 +1,23 @@
-<div class="col-12">
-    <div class="border-top border-bottom py-2 d-flex align-items-center">
-        <img src="https://i.pravatar.cc/150?img=15" alt="" class="rounded-circle me-2" height="48">
-        <div class="lh-1">
-            {{ Auth::user()->name }}<br>
-            <span class="fw-light">Usuario</span>
+<form action="" class="box">
+    <div class="field">
+        <label class="label">Message</label>
+        <div class="control">
+            <textarea class="textarea" placeholder="Textarea"></textarea>
         </div>
     </div>
-</div>
 
-<form action="/posts" method="POST">
-    @csrf
-    <textarea type="text" class="form-control my-2 @error('body')border-danger @else border-0 @enderror" name="body"
-        style="resize:none;" value="old('body')" placeholder="Estoy buscando un cachorro de..."></textarea>
-    @error('body')
-        <p class="text-danger">{{ $errors->first('body') }}</p>
-    @enderror
-    <div class="d-grid mx-2">
-        <button type="submit" class="btn btn-primary">Publicar</button>
+    <div class="is-flex is-align-items-center is-justify-content-space-between">
+        <figure class="image is-48x48">
+            <img src="https://i.pravatar.cc/150?img=1" alt="" class=" is-rounded">
+        </figure>
+
+        <div class="field is-grouped">
+            <div class="control">
+                <button class="button is-primary">Submit</button>
+            </div>
+            <div class="control">
+                <button class="button is-link is-light">Cancel</button>
+            </div>
+        </div>
     </div>
 </form>

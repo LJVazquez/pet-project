@@ -1,4 +1,4 @@
-{{-- @foreach ($posts as $post)
+@foreach (range(1, 5) as $post)
     <div class="media box">
         <figure class="media-left">
             <p class="image is-64x64">
@@ -7,14 +7,17 @@
         </figure>
         <div class="media-content">
             <div class="content">
-                <p><strong>{{ $post->user->name }}</strong>
-
-                    <br> {{ $post->body }} <br>
+                <p>
+                    <strong>Barbara Middleton</strong>
+                    <br>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis porta eros lacus, nec ultricies elit
+                    blandit non. Suspendisse pellentesque mauris sit amet dolor blandit rutrum. Nunc in tempus turpis.
+                    <br>
                 </p>
             </div>
             <nav class="level">
                 <div class="level-left">
-                    <p><small>{{ date($post->created_at) }}</small></p>
+                    <p><small>Publicado hace 3 hs</small></p>
                 </div>
                 <div class="level-right">
                     <a class="level-item">
@@ -27,4 +30,4 @@
             </nav>
         </div>
     </div>
-@endforeach --}}
+@endforeach

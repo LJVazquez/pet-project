@@ -1,23 +1,36 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar is-fixed-top">
+    <div class="container">
+        <div class="navbar-brand">
+            <a href="/" class="navbar-item">
+                <img src="{{ asset('/img/dog.svg') }}" alt="logo">Pet</a>
+            <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false"
+                data-target="navbarBasicExample">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
+        </div>
 
-    <div class="container-fluid">
-        <a class="navbar-brand" href="#">
-            <img src="{{ asset('img/paw.svg') }}" alt="" width="30" height="24" class="d-inline-block align-top">
-            PetProject
-        </a>
-
-
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="#">Home</a>
-                </li>
-            </ul>
+        <div class="navbar-menu" id="nav-links">
+            <div class="navbar-end">
+                @auth
+                    <form action="/logout" method="post" class="navbar-item">
+                        @csrf
+                        <button class="button is-danger">Logout</button>
+                    </form>
+                @else
+                    <div class="navbar-item">
+                        <div class="buttons">
+                            <a href="/register" class="button is-primary">
+                                <strong>Sign up</strong>
+                            </a>
+                            <a href="/login" class="button is-light">
+                                Log in
+                            </a>
+                        </div>
+                    </div>
+                @endauth
+            </div>
         </div>
     </div>
 </nav>
