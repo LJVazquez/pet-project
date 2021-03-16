@@ -18,7 +18,7 @@ class PostController extends Controller
             ->get();
 
         return view(
-            'timeline.home',
+            'posts.index',
             [
                 'posts' => $posts,
                 'following' => $following

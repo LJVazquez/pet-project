@@ -1,24 +1,34 @@
-<header class="box has-background-info"
-    style="background: url('https://i0.wp.com/discussingfilm.net/wp-content/uploads/2019/05/67d4b2dd-1320-4276-9ab9-3660344c8594.jpeg?fit=810%2C405&ssl=1') center center; background-size:cover;">
-    <div class="media">
-        <div class="media-left">
-            <figure class="image is-128x128 is-1by1">
-                <img src="{{ asset('img/nova.jpg') }}" alt="{{ $user->name }} avatar" class="is-rounded">
-            </figure>
-        </div>
+<header>
+    <div class="media box is-shadowless is-radiusless mb-0">
+        <figure class="media-left">
+            <p class="image is-128x128 is-square">
+                <img src="{{ asset('img/nova.jpg') }}" class="is-rounded">
+            </p>
+        </figure>
         <div class="media-content">
             <div class="content">
-                <p class="has-text-white"><span class="title has-text-white">{{ $user->name }}</span>
+                <p>
+                    <strong>{{ $user->name }}</strong>
                     <br>
-                    {{ '@' . $user->name }}
+                    <small>{{ '@' . $user->name }}</small>
                     <br>
-                    Joined {{ $user->created_at->diffForHumans() }}
+                    <small>Member since {{ $user->created_at->isoFormat('MMMM Do YYYY') }}</small>
+                    <br>
+                    <button class="button is-small is-light">Editar perfil</button>
                 </p>
             </div>
         </div>
-        <div class="media-right">
-            <button class="button is-small is-white">Editar perfil</button>
-            <button class="button is-small is-info">Seguir</button>
+
+    </div>
+    <div class="hero is-small is-white">
+        <div class="hero-body">
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum nihil, aliquam quasi eveniet, qui magni
+                nisi molestias repudiandae omnis laboriosam expedita aut porro beatae at itaque. Obcaecati optio
+                aspernatur sunt! Facilis obcaecati pariatur temporibus id reiciendis ipsum, delectus, repellat
+                perspiciatis eos, sunt nam? Voluptate voluptas ipsam fugit voluptatum, dolor quas.</p>
+            <button class="button is-info is-pulled-right mt-1">Seguir</button>
         </div>
+
     </div>
 </header>

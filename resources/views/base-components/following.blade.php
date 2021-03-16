@@ -1,4 +1,4 @@
-<aside class="menu box">
+<aside class="menu box is-shadowless is-radiusless">
     <p class="menu-label has-text-weight-bold">Siguiendo</p>
     <ul class="menu-list">
         @foreach ($following as $user)

@@ -8,6 +8,8 @@
 
                 <div class="column is-full">
                     @include('profiles.header')
+                </div>
+                <div class="column is-full">
                     @include('base-components.message-board')
                 </div>
 

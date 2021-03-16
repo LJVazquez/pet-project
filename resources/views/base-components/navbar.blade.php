@@ -1,4 +1,4 @@
-<nav class="navbar is-fixed-top">
+<nav class="navbar is-info is-fixed-top">
     <div class="container">
         <div class="navbar-brand">
             <a href="/" class="navbar-item">

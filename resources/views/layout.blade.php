@@ -10,9 +10,9 @@
     @yield('css')
 </head>
 
-<body class="has-navbar-fixed-top">
+<body class="has-navbar-fixed-top has-background-light">
     <div class="container">
-        @include('navbar')
+        @include('base-components.navbar')
         @yield('content')
     </div>
 
