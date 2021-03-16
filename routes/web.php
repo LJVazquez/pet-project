@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\FollowsController;
+use App\Http\Controllers\PostController;
+use App\Http\Controllers\ProfilesController;
 use Illuminate\Support\Facades\Route;
 
 // Route::get('/', function () {
@@ -12,11 +15,14 @@ Route::get('/', function () {
 
 
 Route::middleware('auth')->group(function () {
-    Route::get('/posts', 'App\Http\Controllers\PostController@index')->name('home');
-    Route::post('/posts', 'App\Http\Controllers\PostController@store');
+    Route::get('/posts', [PostController::class, 'index'])->name('home');
+    Route::post('/posts', [PostController::class, 'store']);
+    Route::get('/profiles/{user}', [ProfilesController::class, 'show']);
+    Route::post('/profiles/{user}/follow', [FollowsController::class, 'store']);
+    Route::get('/profiles/{user}/edit', [ProfilesController::class, 'edit']);
+    Route::patch('/profiles/{user}', [ProfilesController::class, 'update']);
 });
 
-Route::get('/profiles/{user}', 'App\Http\Controllers\ProfilesController@show');
 
 // Route::middleware(['auth:sanctum', 'verified'])->get('/', function () {
 //     return view('dashboard');

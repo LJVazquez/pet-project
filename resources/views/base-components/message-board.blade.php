@@ -1,4 +1,4 @@
-@foreach ($posts as $post)
+@forelse ($posts as $post)
     <div class="media box is-shadowless is-radiusless">
         <figure class="media-left">
             <p class="image is-64x64 is-1by1">
@@ -8,7 +8,7 @@
         <div class="media-content">
             <div class="content">
                 <p>
-                    <a href="/profiles/{{ $post->user->id }}"><strong>{{ $post->user->name }}</strong></a>
+                    <a href="/profiles/{{ $post->user->id }}"><strong>{{ $post->user->username }}</strong></a>
                     <small class="is-pulled-right">{{ $post->created_at->diffForHumans() }}</small>
                     <br>{{ $post->body }} <br>
                 </p>
@@ -27,4 +27,12 @@
             </nav>
         </div>
     </div>
-@endforeach
+@empty
+    <div class="media box is-shadowless is-radiusless">
+        @if (Request::path() === 'posts')
+            No hay posts. Agrega nuevos amigos!
+        @else
+            El usuario todavia no tiene posteos.
+        @endif
+    </div>
+@endforelse

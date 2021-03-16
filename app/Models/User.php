@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\traits\Followable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -17,6 +18,7 @@ class User extends Authenticatable
     use HasProfilePhoto;
     use Notifiable;
     use TwoFactorAuthenticatable;
+    use Followable;
 
     /**
      * The attributes that are mass assignable.
@@ -24,7 +26,9 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name',
+        'username',
+        'firstname',
+        'lastname',
         'email',
         'password',
     ];
@@ -58,16 +62,6 @@ class User extends Authenticatable
     protected $appends = [
         'profile_photo_url',
     ];
-
-    public function follow(User $user)
-    {
-        return $this->following()->save($user);
-    }
-
-    public function following()
-    {
-        return $this->belongsToMany(User::class, 'following', 'user_id', 'following_user_id');
-    }
 
     public function posts()
     {

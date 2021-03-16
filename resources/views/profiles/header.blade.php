@@ -8,13 +8,15 @@
         <div class="media-content">
             <div class="content">
                 <p>
-                    <strong>{{ $user->name }}</strong>
+                    <strong>{{ $user->firstname . ' ' . $user->lastname }}</strong>
                     <br>
-                    <small>{{ '@' . $user->name }}</small>
+                    <small>{{ '@' . $user->username }}</small>
                     <br>
                     <small>Member since {{ $user->created_at->isoFormat('MMMM Do YYYY') }}</small>
                     <br>
-                    <button class="button is-small is-light">Editar perfil</button>
+                    @can('edit', $user)
+                        <a href="/profiles/{{ $user->id }}/edit" class="button is-small is-light">Editar perfil</a>
+                    @endcan
                 </p>
             </div>
         </div>
@@ -27,8 +29,14 @@
                 nisi molestias repudiandae omnis laboriosam expedita aut porro beatae at itaque. Obcaecati optio
                 aspernatur sunt! Facilis obcaecati pariatur temporibus id reiciendis ipsum, delectus, repellat
                 perspiciatis eos, sunt nam? Voluptate voluptas ipsam fugit voluptatum, dolor quas.</p>
-            <button class="button is-info is-pulled-right mt-1">Seguir</button>
+            <form action="/profiles/{{ $user->id }}/follow" method="POST">
+                @csrf
+                @unless(Auth::id() === $user->id)
+                    <button type="submit" class="button is-info is-pulled-right mt-1">
+                        {{ Auth::user()->isFollowing($user) ? 'Dejar de seguir' : 'Seguir' }}
+                    </button>
+                @endunless
+            </form>
         </div>
-
     </div>
 </header>

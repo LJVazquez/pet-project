@@ -13,8 +13,8 @@
                 @csrf
                 <p>
                     <a href="/profiles/{{ Auth::user()->id }}">
-                        <strong>{{ Auth::user()->name }}</strong>
-                        <small>{{ '@' . Auth::user()->name }}</small>
+                        <strong>{{ Auth::user()->firstname }}</strong>
+                        <small>{{ '@' . Auth::user()->username }}</small>
                     </a>
                 </p>
                 <div class="control">
