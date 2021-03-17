@@ -4,7 +4,7 @@
     <div class="columns mt-1">
 
         <div class="column">
-            <div class="columns is-multiline">
+            <div class="columns is-centered is-multiline">
 
                 <div class="column is-full">
                     @include('profiles.header')
@@ -20,6 +20,10 @@
 
                     @include('base-components.message-board')
 
+                </div>
+
+                <div class="column has-text-centered">
+                    {{ $posts->links() }}
                 </div>
 
             </div>

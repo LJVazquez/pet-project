@@ -9,7 +9,7 @@ class ExploreController extends Controller
 {
     public function __invoke()
     {
-        $posts = Post::latest()->paginate('50');
+        $posts = Post::latest()->paginate('20');
 
         return view('explore.index', ['posts' => $posts]);
     }

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html class="has-background-light">
 
 <head>
     <meta charset="utf-8">
@@ -10,7 +10,7 @@
     @yield('css')
 </head>
 
-<body class="has-navbar-fixed-top has-background-light">
+<body class="has-navbar-fixed-top">
     <div class="container">
         @include('base-components.navbar')
         @yield('content')

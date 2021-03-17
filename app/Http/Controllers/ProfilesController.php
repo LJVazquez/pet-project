@@ -13,7 +13,7 @@ class ProfilesController extends Controller
     {
         return view('profiles.show', [
             'user' => $user,
-            'posts' => $user->posts,
+            'posts' => $user->posts()->paginate(10),
             'following' => $user->following
         ]);
     }

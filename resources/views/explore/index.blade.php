@@ -11,8 +11,22 @@
                 </div> --}}
 
                 <div class="column">
+
+                    @if (session('message'))
+                        <div class="notification is-primary has-text-centered">
+                            <button class="delete"></button>
+                            {{ session('message') }}
+                        </div>
+                    @endif
+
                     @include('base-components.message-board')
+
+                    <div class="column has-text-centered">
+                        {{ $posts->links() }}
+                    </div>
+
                 </div>
+
 
             </div>
         </div>

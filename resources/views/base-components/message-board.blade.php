@@ -40,12 +40,10 @@
                 </div>
             </nav>
         </div>
-
-        {{-- <div class="media-right">
-            <button class="delete"></button>
-        </div> --}}
     </div>
+
 @empty
+
     <div class="media box is-shadowless is-radiusless">
         @if (Request::path() === 'posts')
             No hay posts. Agrega nuevos amigos!
@@ -53,4 +51,5 @@
             El usuario todavia no tiene posteos.
         @endif
     </div>
+
 @endforelse

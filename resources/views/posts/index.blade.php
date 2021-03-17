@@ -20,7 +20,14 @@
                     @endif
 
                     @include('base-components.message-board')
+
+                    <div class="column has-text-centered">
+                        {{ $posts->links() }}
+                    </div>
+
                 </div>
+
+
 
             </div>
         </div>

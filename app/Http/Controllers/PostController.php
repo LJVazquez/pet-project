@@ -15,7 +15,7 @@ class PostController extends Controller
         $posts = Post::whereIn('user_id', $followingIDs)
             ->orWhere('user_id', Auth::id())
             ->latest()
-            ->get();
+            ->paginate(10);
 
         return view(
             'posts.index',
