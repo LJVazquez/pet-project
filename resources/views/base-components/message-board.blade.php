@@ -1,8 +1,8 @@
 @forelse ($posts as $post)
     <div class="media box is-shadowless is-radiusless">
         <figure class="media-left">
-            <p class="image is-64x64 is-1by1">
-                <img src="{{ asset('img/nova.jpg') }}" class="is-rounded">
+            <img src="{{ $post->user->getAvatar() }}" alt="{{ $post->user->name }} avatar"
+                style="height:64px;width:64px;object-fit:cover;border-radius:50%">
             </p>
         </figure>
         <div class="media-content">

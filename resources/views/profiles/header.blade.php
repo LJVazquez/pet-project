@@ -1,9 +1,8 @@
 <header>
     <div class="media box is-shadowless is-radiusless mb-0">
         <figure class="media-left">
-            <p class="image is-128x128 is-square">
-                <img src="{{ asset('img/nova.jpg') }}" class="is-rounded">
-            </p>
+            <img src="{{ $user->getAvatar() }}" alt="{{ $user->name }} avatar"
+                style="height:128px;width:128px;object-fit:cover;border-radius:50%">
         </figure>
         <div class="media-content">
             <div class="content">
@@ -24,11 +23,7 @@
     </div>
     <div class="hero is-small is-white">
         <div class="hero-body">
-            <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum nihil, aliquam quasi eveniet, qui magni
-                nisi molestias repudiandae omnis laboriosam expedita aut porro beatae at itaque. Obcaecati optio
-                aspernatur sunt! Facilis obcaecati pariatur temporibus id reiciendis ipsum, delectus, repellat
-                perspiciatis eos, sunt nam? Voluptate voluptas ipsam fugit voluptatum, dolor quas.</p>
+            <p>{{ $user->bio ? $user->bio : 'Este usuario todavía no compartió su bio :(' }}</p>
             <form action="/profiles/{{ $user->id }}/follow" method="POST">
                 @csrf
                 @unless(Auth::id() === $user->id)

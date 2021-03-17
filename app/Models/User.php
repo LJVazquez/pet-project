@@ -31,6 +31,9 @@ class User extends Authenticatable
         'lastname',
         'email',
         'password',
+        'bio',
+        'avatar',
+        'foundation'
     ];
 
     /**
@@ -66,5 +69,11 @@ class User extends Authenticatable
     public function posts()
     {
         return $this->hasMany(Post::class);
+    }
+
+    public function getAvatar()
+    {
+        return $this->avatar ? asset("/storage/$this->avatar")
+            : asset("storage/avatars/default_avatar.jpg");
     }
 }

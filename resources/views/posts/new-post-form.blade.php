@@ -2,7 +2,8 @@
     <figure class="media-left">
         <p class="image is-64x64 is-square">
             <a href="/profiles/{{ Auth::user()->id }}">
-                <img src="{{ asset('img/nova.jpg') }}" class="is-rounded">
+                <img src="{{ Auth::user()->getAvatar() }}" alt="{{ Auth::user()->name }} avatar"
+                    style="height:64px;width:64px;object-fit:cover;border-radius:50%">
             </a>
         </p>
     </figure>
