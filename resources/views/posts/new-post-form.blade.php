@@ -13,7 +13,7 @@
             <form action="/posts" method="POST">
                 @csrf
                 <p>
-                    <a href="/profiles/{{ Auth::user()->id }}">
+                    <a href="/profiles/{{ Auth::user()->username }}">
                         <strong>{{ Auth::user()->firstname }}</strong>
                         <small>{{ '@' . Auth::user()->username }}</small>
                     </a>

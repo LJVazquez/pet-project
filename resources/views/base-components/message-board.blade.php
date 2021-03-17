@@ -8,7 +8,7 @@
         <div class="media-content">
             <div class="content">
                 <p>
-                    <a href="/profiles/{{ $post->user->id }}"><strong>{{ $post->user->username }}</strong></a>
+                    <a href="/profiles/{{ $post->user->username }}"><strong>{{ $post->user->username }}</strong></a>
                     <small class="is-pulled-right">{{ $post->created_at->diffForHumans() }}</small>
                     <br>{{ $post->body }} <br>
                 </p>

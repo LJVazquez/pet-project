@@ -17,7 +17,7 @@ Route::get('/', function () {
 Route::middleware('auth')->group(function () {
     Route::get('/posts', [PostController::class, 'index'])->name('home');
     Route::post('/posts', [PostController::class, 'store']);
-    Route::get('/profiles/{user}', [ProfilesController::class, 'show']);
+    Route::get('/profiles/{user:username}', [ProfilesController::class, 'show']);
     Route::post('/profiles/{user}/follow', [FollowsController::class, 'store']);
     Route::get('/profiles/{user}/edit', [ProfilesController::class, 'edit']);
     Route::patch('/profiles/{user}', [ProfilesController::class, 'update']);
