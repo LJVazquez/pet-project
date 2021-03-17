@@ -1,19 +1,33 @@
 @forelse ($posts as $post)
+
     <div class="media box is-shadowless is-radiusless">
+
         <figure class="media-left">
             <img src="{{ $post->user->getAvatar() }}" alt="{{ $post->user->name }} avatar"
                 style="height:64px;width:64px;object-fit:cover;border-radius:50%">
             </p>
         </figure>
+
         <div class="media-content">
-            <div class="content">
+
+            <form class="content" action="/posts/{{ $post->id }}" method="POST">
+                @csrf
+                @method('DELETE')
                 <p>
                     <a href="/profiles/{{ $post->user->username }}"><strong>{{ $post->user->username }}</strong></a>
-                    <small class="is-pulled-right">{{ $post->created_at->diffForHumans() }}</small>
+                    @can('delete', $post)
+                        <button type="submit" class="delete is-pulled-right"></button>
+                    @endcan
                     <br>{{ $post->body }} <br>
                 </p>
-            </div>
-            <nav class="level is-mobile is-pulled-right">
+            </form>
+
+            <nav class="level is-mobile">
+
+                <div class="level-left">
+                    <small class="level-item is-pulled-left">{{ $post->created_at->diffForHumans() }}</small>
+                </div>
+
                 <div class="level-right">
                     <a class="level-item">
                         <span class="icon is-small"><i class="fas fa-dollar-sign"></i></span>
@@ -26,6 +40,10 @@
                 </div>
             </nav>
         </div>
+
+        {{-- <div class="media-right">
+            <button class="delete"></button>
+        </div> --}}
     </div>
 @empty
     <div class="media box is-shadowless is-radiusless">

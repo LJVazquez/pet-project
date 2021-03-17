@@ -16,13 +16,7 @@
         @yield('content')
     </div>
 
-    <script>
-        const burgerIcon = document.querySelector('.navbar-burger');
-        burgerIcon.addEventListener('click', () => {
-            document.getElementById('nav-links').classList.toggle('is-active')
-        })
-
-    </script>
+    @include('scripts')
     @yield('js')
 </body>
 

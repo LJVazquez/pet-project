@@ -37,6 +37,15 @@ class PostController extends Controller
             'body' => $request->body
         ]);
 
-        return redirect('/')->with('message', 'Post creado 🐾');
+        return redirect('/posts')->with('message', 'Post creado 🐾');
+    }
+
+    public function destroy(Post $post)
+    {
+        $this->authorize('delete', $post);
+
+        $post->delete();
+
+        return back()->with('message', 'Posteo borrado');
     }
 }

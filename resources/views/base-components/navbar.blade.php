@@ -1,8 +1,8 @@
 <nav class="navbar is-info is-fixed-top">
-    <div class="container">
+    <div class="container ">
         <div class="navbar-brand">
             <a href="/" class="navbar-item">
-                <img src="{{ asset('/img/paw.svg') }}" alt="logo">Pet</a>
+                <img src="{{ asset('/img/logo.png') }}" alt="logo"></a>
             <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false"
                 data-target="navbarBasicExample">
                 <span aria-hidden="true"></span>
@@ -12,6 +12,11 @@
         </div>
 
         <div class="navbar-menu" id="nav-links">
+            <div class="navbar-start">
+                <a href="explore" class="navbar-item">
+                    Explorar
+                </a>
+            </div>
             <div class="navbar-end">
                 @auth
                     <form action="/logout" method="post" class="navbar-item">

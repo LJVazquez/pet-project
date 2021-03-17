@@ -10,7 +10,16 @@
                     @include('profiles.header')
                 </div>
                 <div class="column is-full">
+
+                    @if (session('message'))
+                        <div class="notification is-primary has-text-centered">
+                            <button class="delete"></button>
+                            {{ session('message') }}
+                        </div>
+                    @endif
+
                     @include('base-components.message-board')
+
                 </div>
 
             </div>

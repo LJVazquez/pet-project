@@ -43,7 +43,7 @@
                         <label class="label">Usuario</label>
                         <div class="control has-icons-left has-icons-right">
                             <input name="username" class="input @error('username') is-danger @enderror " type="text"
-                                placeholder="Max. 20 caracteres alfanumericos" value="{{ $user->username }}">
+                                placeholder="Max. 20 caracteres alfanumericos" value="{{ $user->username }}" required>
                             <span class="icon is-small is-left">
                                 <i class="fas fa-smile"></i>
                             </span>
@@ -57,7 +57,7 @@
                         <label class="label">Nombre</label>
                         <div class="control has-icons-left has-icons-right">
                             <input name="firstname" class="input @error('firstname') is-danger @enderror " type="text"
-                                placeholder="Max. 20 caracteres" value="{{ $user->firstname }}">
+                                placeholder="Max. 20 caracteres" value="{{ $user->firstname }}" required>
                             <span class="icon is-small is-left">
                                 <i class="fas fa-user"></i>
                             </span>
@@ -71,7 +71,7 @@
                         <label class="label">Apellido</label>
                         <div class="control has-icons-left has-icons-right">
                             <input name="lastname" class="input @error('lastname') is-danger @enderror " type="text"
-                                placeholder="Max. 20 caracteres" value="{{ $user->lastname }}">
+                                placeholder="Max. 20 caracteres" value="{{ $user->lastname }}" required>
                             <span class="icon is-small is-left">
                                 <i class="fas fa-user"></i>
                             </span>
@@ -85,7 +85,7 @@
                         <label class="label">Email</label>
                         <div class="control has-icons-left has-icons-right">
                             <input name="email" class="input @error('email') is-danger @enderror " type="email"
-                                placeholder="Email" value="{{ $user->email }}">
+                                placeholder="Email" value="{{ $user->email }}" required>
                             <span class="icon is-small is-left">
                                 <i class="fas fa-at"></i>
                             </span>
@@ -129,7 +129,7 @@
                             <button type="submit" class="button is-success">Actualizar</button>
                         </div>
                         <div class="control">
-                            <a href="/profiles/{{ Auth::id() }}" class="button is-link is-light">Volver</a>
+                            <a href="/profiles/{{ Auth::user()->username }}" class="button is-link is-light">Volver</a>
                         </div>
                     </div>
                 </form>
@@ -137,19 +137,4 @@
         </div>
     </div>
 
-@endsection
-
-@section('js')
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            (document.querySelectorAll('.notification .delete') || []).forEach(($delete) => {
-                const $notification = $delete.parentNode;
-
-                $delete.addEventListener('click', () => {
-                    $notification.parentNode.removeChild($notification);
-                });
-            });
-        });
-
-    </script>
 @endsection
