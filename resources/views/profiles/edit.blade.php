@@ -31,7 +31,7 @@
                             <input name="avatar" class="input @error('avatar') is-danger @enderror " type="file"
                                 placeholder="Avatar" value="{{ $user->avatar }}">
                             <span class="icon is-small is-left">
-                                <i class="fas fa-user"></i>
+                                <i class="fas fa-portrait"></i>
                             </span>
                         </div>
                         @error('avatar')
@@ -45,7 +45,7 @@
                             <input name="username" class="input @error('username') is-danger @enderror " type="text"
                                 placeholder="Max. 20 caracteres alfanumericos" value="{{ $user->username }}">
                             <span class="icon is-small is-left">
-                                <i class="fas fa-user"></i>
+                                <i class="fas fa-smile"></i>
                             </span>
                         </div>
                         @error('username')
@@ -87,7 +87,7 @@
                             <input name="email" class="input @error('email') is-danger @enderror " type="email"
                                 placeholder="Email" value="{{ $user->email }}">
                             <span class="icon is-small is-left">
-                                <i class="fas fa-user"></i>
+                                <i class="fas fa-at"></i>
                             </span>
                         </div>
                         @error('email')
