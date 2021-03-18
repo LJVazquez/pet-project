@@ -48,4 +48,10 @@ class PostController extends Controller
 
         return back()->with('message', 'Posteo borrado');
     }
+
+    public function interest(Post $post)
+    {
+        $post->interest(Auth::user());
+        return back();
+    }
 }

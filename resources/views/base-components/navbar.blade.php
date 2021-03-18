@@ -13,7 +13,7 @@
 
         <div class="navbar-menu" id="nav-links">
             <div class="navbar-start">
-                <a href="explore" class="navbar-item">
+                <a href="/explore" class="navbar-item">
                     Explorar
                 </a>
             </div>

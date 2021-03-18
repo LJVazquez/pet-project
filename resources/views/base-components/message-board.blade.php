@@ -29,14 +29,28 @@
                 </div>
 
                 <div class="level-right">
-                    <a class="level-item">
-                        <span class="icon is-small"><i class="fas fa-dollar-sign"></i></span>
-                        <p>Donar</p>
-                    </a>
-                    <a class="level-item">
-                        <span class="icon is-small"><i class="fas fa-hand-sparkles"></i></span>
-                        <p class="ml-2">Adoptar</p>
-                    </a>
+                    <form action="/posts/{{ $post->id }}/interest" method="POST">
+                        @csrf
+                        <a class="level-item">
+                            @auth
+                                <button class="button is-small is-success @if (!$post->isUserInterested(Auth::user())) is-light @endif">
+                                    <span class="icon">
+                                        <i class="fas fa-hand-sparkles"></i>
+                                    </span>
+                                    <span>
+                                        {{ $post->interesteds->count() ? 'Interesado (' . $post->interesteds->count() . ')' : 'Me interesa' }}</span>
+                                </button>
+                            @else
+                                <button class="button is-small is-success is-light">
+                                    <span class="icon">
+                                        <i class="fas fa-hand-sparkles"></i>
+                                    </span>
+                                    <span>
+                                        {{ $post->interesteds->count() ? 'Me interesa (' . $post->interesteds->count() . ')' : 'Me interesa' }}</span>
+                                </button>
+                            @endauth
+                        </a>
+                    </form>
                 </div>
             </nav>
         </div>

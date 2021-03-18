@@ -71,6 +71,11 @@ class User extends Authenticatable
         return $this->hasMany(Post::class);
     }
 
+    public function interesteds()
+    {
+        return $this->belongsToMany(User::class, 'interests');
+    }
+
     public function getAvatar()
     {
         return $this->avatar ? asset("/storage/$this->avatar")

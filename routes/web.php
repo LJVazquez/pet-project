@@ -19,6 +19,7 @@ Route::get('explore', ExploreController::class);
 Route::middleware('auth')->group(function () {
     Route::get('/posts', [PostController::class, 'index'])->name('home');
     Route::post('/posts', [PostController::class, 'store']);
+    Route::post('/posts/{post}/interest', [PostController::class, 'interest']);
     Route::delete('/posts/{post}', [PostController::class, 'destroy']);
     Route::get('/profiles/{user:username}', [ProfilesController::class, 'show']);
     Route::post('/profiles/{user}/follow', [FollowsController::class, 'store']);
