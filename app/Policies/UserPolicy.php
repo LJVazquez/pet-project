@@ -10,6 +10,13 @@ class UserPolicy
 {
     use HandlesAuthorization;
 
+    public function before(User $user)
+    {
+        if ($user->admin) {
+            return true;
+        }
+    }
+
     public function edit(User $currentUser, User $user)
     {
         return $currentUser->id === $user->id;

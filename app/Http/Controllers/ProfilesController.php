@@ -33,7 +33,6 @@ class ProfilesController extends Controller
             'firstname' => ['required', 'string', 'max:20'],
             'lastname' => ['required', 'string', 'max:20'],
             'bio' => ['nullable', 'string', 'max:160'],
-            'foundation' => ['required', 'digits_between:1,1'],
             'email' => ['required', 'string', 'email', 'max:255', Rule::unique('users')->ignore($user)],
             'avatar' => ['image', 'dimensions:min_width=100,min_height=200', 'max:2000']
         ]);

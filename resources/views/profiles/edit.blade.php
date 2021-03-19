@@ -21,7 +21,7 @@
                     @method('PATCH')
 
                     <div class="field is-flex is-justify-content-center">
-                        <img src="{{ Auth::user()->getAvatar() }}" alt="{{ Auth::user()->name }} avatar"
+                        <img src="{{ $user->getAvatar() }}" alt="{{ $user->name }} avatar"
                             style="height:128px;width:128px;object-fit:cover;border-radius:50%">
                     </div>
 
@@ -96,30 +96,12 @@
                     </div>
 
                     <div class="field">
-                        <label class="label">Tipo de usuario</label>
-                        <div class="control">
-                            <div class="select @error('foundation') is-danger @enderror">
-                                <select name="foundation">
-                                    <option value="0">Particular</option>
-                                    <option value="1" {{ $user->foundation ? 'selected' : '' }}>Fundacion</option>
-                                </select>
-                            </div>
-                        </div>
-                        @error('foundation')
-                            <p class="help is-danger">{{ $errors->first('foundation') }}</p>
-                        @enderror
-                        @if (session('foundation-error'))
-                            <p class="help is-danger">{{ session('foundation-error') }}</p>
-                        @endif
-                    </div>
-
-                    <div class="field">
                         <label class="label">Bio</label>
                         <div class="control">
                             <textarea name="bio" class="textarea @error('bio') is-danger @enderror "
                                 placeholder="Max. 160 caracteres" style=" resize:none">{{ $user->bio }}</textarea>
                         </div>
-                        @error('foundation')
+                        @error('bio')
                             <p class="help is-danger">{{ $errors->first('bio') }}</p>
                         @enderror
                     </div>
@@ -129,7 +111,7 @@
                             <button type="submit" class="button is-success">Actualizar</button>
                         </div>
                         <div class="control">
-                            <a href="/profiles/{{ Auth::user()->username }}" class="button is-link is-light">Volver</a>
+                            <a href="/profiles/{{ $user->username }}" class="button is-link is-light">Volver</a>
                         </div>
                     </div>
                 </form>

@@ -13,8 +13,14 @@
 
         <div class="navbar-menu" id="nav-links">
             <div class="navbar-start">
+                <a href="/" class="navbar-item">
+                    Inicio
+                </a>
                 <a href="/explore" class="navbar-item">
                     Explorar
+                </a>
+                <a href="/profiles/{{ Auth::user()->username }}" class="navbar-item">
+                    {{ Auth::user()->firstname }}
                 </a>
             </div>
             <div class="navbar-end">

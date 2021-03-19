@@ -10,11 +10,17 @@ class PostPolicy
 {
     use HandlesAuthorization;
 
+    public function before(User $user)
+    {
+        if ($user->admin) {
+            return true;
+        }
+    }
+
     public function update(User $user, Post $post)
     {
         //
     }
-
 
     public function delete(User $user, Post $post)
     {
