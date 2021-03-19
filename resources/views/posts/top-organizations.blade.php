@@ -1,12 +1,10 @@
 <aside class="menu box is-shadowless is-radiusless">
-    <p class="menu-label has-text-weight-bold">Organizaciones top</p>
+    <p class="menu-label has-text-weight-bold">Ultimos usuarios registrados</p>
     <ul class="menu-list">
-        @foreach (range(1, 5) as $friend)
+        @foreach ($users as $user)
             <li class="is-flex is-align-items-center mb-3">
-                <figure class="image is-48x48">
-                    <img src="https://i.pravatar.cc/150?img=26" alt="" class="is-rounded">
-                </figure>
-                <a href="#">Jackie</a>
+                <img src="{{ $user->getAvatar() }}" alt="" class="avatar is-64">
+                <a href="/profiles/{{ $user->username }}">{{ $user->username }}</a>
             </li>
         @endforeach
     </ul>

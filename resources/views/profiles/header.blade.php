@@ -1,8 +1,7 @@
 <header>
     <div class="media box is-shadowless is-radiusless mb-0">
         <figure class="media-left">
-            <img src="{{ $user->getAvatar() }}" alt="{{ $user->name }} avatar"
-                style="height:128px;width:128px;object-fit:cover;border-radius:50%">
+            <img src="{{ $user->getAvatar() }}" alt="{{ $user->name }} avatar" class="avatar is-128">
         </figure>
         <div class="media-content">
             <div class="content">

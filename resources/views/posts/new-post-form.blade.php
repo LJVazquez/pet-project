@@ -3,7 +3,7 @@
         <p class="image is-64x64 is-square">
             <a href="/profiles/{{ Auth::user()->username }}">
                 <img src="{{ Auth::user()->getAvatar() }}" alt="{{ Auth::user()->name }} avatar"
-                    style="height:64px;width:64px;object-fit:cover;border-radius:50%">
+                    class="avatar is-64">
             </a>
         </p>
     </figure>

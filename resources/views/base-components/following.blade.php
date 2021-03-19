@@ -3,12 +3,11 @@
     <ul class="menu-list">
         @forelse ($following as $user)
             <li class="is-flex is-align-items-center mb-3">
-                <img src="{{ $user->getAvatar() }}" alt="{{ $user->name }} avatar"
-                    style="height:48px;width:48px;object-fit:cover;border-radius:50%">
+                <img src="{{ $user->getAvatar() }}" alt="{{ $user->name }} avatar" class="avatar">
                 <a href="/profiles/{{ $user->username }}">{{ $user->username }}</a>
             </li>
         @empty
-            Actualmente no seguis a nadie!
+            <p class="help">Vacio! :(</p>
         @endforelse
     </ul>
 </aside>

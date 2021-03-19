@@ -1,0 +1,21 @@
+.avatar {
+    height: 48px;
+    width: 48px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.is-64 {
+    height: 64px;
+    width: 64px;
+}
+
+.is-128 {
+    height: 128px;
+    width: 128px;
+}
+
+.post-image {
+    max-height: 500px;
+    object-fit: cover;
+}

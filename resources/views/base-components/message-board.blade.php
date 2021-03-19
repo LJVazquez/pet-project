@@ -3,8 +3,7 @@
     <div class="media box is-shadowless is-radiusless">
 
         <figure class="media-left">
-            <img src="{{ $post->user->getAvatar() }}" alt="{{ $post->user->name }} avatar"
-                style="height:64px;width:64px;object-fit:cover;border-radius:50%">
+            <img src="{{ $post->user->getAvatar() }}" alt="{{ $post->user->name }} avatar" class="avatar is-64">
             </p>
         </figure>
 
@@ -24,7 +23,7 @@
 
             @if ($post->image)
                 <figure class="image mb-2">
-                    <img src="{{ $post->getImage() }}" style="max-height:500px;object-fit:cover">
+                    <img src="{{ $post->getImage() }}" class="post-image">
                 </figure>
             @endif
 
