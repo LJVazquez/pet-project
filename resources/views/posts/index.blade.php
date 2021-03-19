@@ -39,3 +39,18 @@
 
     </div>
 @endsection
+
+@section('js')
+
+    <script>
+        const fileInput = document.querySelector('#upload-image input[type=file]');
+        fileInput.onchange = () => {
+            if (fileInput.files.length > 0) {
+                const fileName = document.querySelector('#upload-image .file-name');
+                fileName.textContent = fileInput.files[0].name;
+            }
+        }
+
+    </script>
+
+@endsection

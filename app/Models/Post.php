@@ -4,30 +4,22 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\traits\Interesable;
 
 class Post extends Model
 {
-    protected $fillable = ['body', 'user_id'];
+    protected $fillable = ['body', 'user_id', 'image'];
 
     use HasFactory;
+    use Interesable;
 
     public function user()
     {
         return $this->belongsTo(User::class);
     }
 
-    public function interest(User $user)
+    public function getImage()
     {
-        return $this->interesteds()->toggle($user);
-    }
-
-    public function interesteds()
-    {
-        return $this->belongsToMany(User::class, 'adopts');
-    }
-
-    public function isUserInterested(User $user)
-    {
-        return $this->interesteds->where('id', $user->id)->isNotEmpty();
+        return asset("/storage/$this->image");
     }
 }

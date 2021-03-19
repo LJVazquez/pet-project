@@ -7,6 +7,7 @@
     <title>Hello Bulma!</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
     <script src="https://kit.fontawesome.com/a3cc8340a6.js" crossorigin="anonymous"></script>
+    @livewireStyles
     @yield('css')
 </head>
 
@@ -16,6 +17,7 @@
         @yield('content')
     </div>
 
+    @livewireScripts
     @include('scripts')
     @yield('js')
 </body>

@@ -22,6 +22,13 @@
                 </p>
             </form>
 
+            @if ($post->image)
+                <figure class="image mb-2">
+                    <img src="{{ $post->getImage() }}" style="max-height:500px;object-fit:cover">
+                </figure>
+            @endif
+
+
             <nav class="level is-mobile">
 
                 <div class="level-left">

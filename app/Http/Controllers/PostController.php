@@ -29,12 +29,14 @@ class PostController extends Controller
     public function store(Request $request, Post $post)
     {
         $request->validate([
-            'body' => 'required|max:255'
+            'body' => 'required|max:255',
+            'image' => ['image', 'dimensions:min_width=100,min_height=200', 'max:2000']
         ]);
 
         Post::create([
             'user_id' => Auth::id(),
-            'body' => $request->body
+            'body' => $request->body,
+            'image' => $request->image ? $request->image->store('posts-images') : null
         ]);
 
         return redirect('/posts')->with('message', 'Post creado 🐾');
