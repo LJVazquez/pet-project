@@ -33,7 +33,6 @@
         </div>
 
         <div class="column is-one-third is-multiline is-hidden-mobile">
-            @include('posts.top-organizations')
             @include('base-components.following')
         </div>
 
